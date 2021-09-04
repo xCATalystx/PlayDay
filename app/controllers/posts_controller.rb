@@ -39,7 +39,9 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @post.comments.order(id: :asc)
+    @comments = @post.comments
+                     .where(deleted_at: nil)
+                     .order(id: :asc)
   end
 
   private

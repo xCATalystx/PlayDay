@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
       render 'posts/show'
     end   
   end
-  
+
   def edit
     comment = Comment.find(params[:id])
   end
