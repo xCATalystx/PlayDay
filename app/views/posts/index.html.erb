@@ -2,4 +2,15 @@
   <h1>文章</h1>
 
   <%= link_to "新增卡片", new_post_path %>
+
+  <% @posts.each do |post| %>
+    <div class="post">
+      <header class="post-title">
+        <%= link_to post.title, post_path(post) %>
+      </header>
+      <div class="post-body">
+        <p><%= post.content %></p>
+      </div>
+    </div>
+  <% end %>
 </div>

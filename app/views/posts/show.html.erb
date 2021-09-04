@@ -1,0 +1,27 @@
+<div>
+  <div>
+    <h1><%= @post.title %></h1>
+    <p><%= link_to "編輯", edit_post_path(@post) %></p>
+    <p><%= link_to "刪除", @post, method: :delete, data: { confirm: '確定刪除？' } %></p>
+  </div>
+  <div>
+    <h2><%= @post.content %></h2>
+  </div>
+  <hr>
+  <ul>
+    <% @comments.each do |comment|%>
+    <li>
+      <%= comment.content %>
+      <%= link_to "編輯", edit_comment_path(comment) %>
+      <%= link_to "刪除", comment, method: 'delete', data: { confirm: '確定刪除？' } %>
+    </li>  
+    <% end %>
+  </ul>
+  <hr>
+  <div>
+    <%= form_for(@comment, url: post_comments_path(@post), remote: true) do |f| %>
+      <%= f.text_area :content %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
