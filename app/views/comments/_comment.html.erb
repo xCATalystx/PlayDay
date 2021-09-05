@@ -1,0 +1,5 @@
+<li>
+  <p><%= comment.content %></p>
+  <p><%= link_to "編輯", edit_comment_path(comment) %>
+  <%= link_to "刪除", comment, method: 'delete', data: { confirm: '確定刪除？' } %></p>
+</li>
