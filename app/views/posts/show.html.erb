@@ -9,9 +9,7 @@
   <%= link_to "刪除", @post, method: :delete, data: { confirm: '確定刪除？' } %></p>
   <hr>
   <ul>
-    <% @comments.each do |comment| %>
-      <%= render 'comments/comment', comment: comment %>  
-    <% end %>
+    <% render @comments %>
   </ul>
   <hr>
   <div>
